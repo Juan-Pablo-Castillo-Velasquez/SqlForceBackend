@@ -1,13 +1,12 @@
 import mysql from 'mysql2/promise';
 
 const pool = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 50, // Ajusta este valor según tus necesidades
   waitForConnections: true,
-  host: process.env.MYSQLHOST || 'monorail.proxy.rlwy.net',
+  host: process.env.MYSQLHOST || 'localhost',
   user: process.env.MYSQLUSER || 'root',
-  password: process.env.MYSQLPASSWORD || 'b251-B6Ge34DAaffd3EbcB6bh51eD-CF',
+  password: process.env.MYSQLPASSWORD || '123456',
   database: process.env.MYSQL_DATABASE || 'railway',
-  port: process.env.MYSQLPORT ? parseInt(process.env.MYSQLPORT, 10) : 54501,
 });
 
-export { pool };
+export default pool;

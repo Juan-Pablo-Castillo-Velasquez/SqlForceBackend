@@ -1,7 +1,7 @@
 // src/pages/api/insertLogin.ts
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { pool } from "./conexion";
+import  pool  from "./conexion";
 
 type Data = {
   message: string;

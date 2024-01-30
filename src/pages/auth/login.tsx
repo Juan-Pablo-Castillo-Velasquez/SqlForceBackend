@@ -1,9 +1,10 @@
 import { SyntheticEvent, useState } from 'react';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
-import SuccessCard from '@/components/SuccessCard';
-import ErrorCard from '@/components/ErrorCard';
+import SuccessCard from '@/pages/components/SuccessCard';
+import ErrorCard from '@/pages/components/ErrorCard';
 import Confetti from 'react-confetti';
 import Link from 'next/link';
+import Router from 'next/router';
 export default function Register() {
   const [responseMessage, setResponseMessage] = useState("");
   const [showSuccessCard, setShowSuccessCard] = useState(false);
@@ -40,6 +41,7 @@ export default function Register() {
         setTimeout(() => {
           setShowSuccessCard(false);
         setShowConfetti(false);
+        Router.push('/home/home');
 
         }, 5000); // Por ejemplo, ocultar después de 5 segundos
 
@@ -50,10 +52,10 @@ export default function Register() {
       } else {
         const errorData = await response.json();
 
-        if (  errorData.message=="Credenciales incorrectas") {
+        if (  errorData.message=="Credenciales inválidas") {
         
           setShowErrorCard(true);
-          setErrorCardMessage("Credenciales incorrectas");
+          setErrorCardMessage("Credenciales inválidas");
           setTimeout(() => {
             setShowErrorCard(false);
             setErrorCardMessage("");
@@ -125,7 +127,7 @@ export default function Register() {
             Loging
           </button>
           <span className="text-sm ml-2 text-white hover:text-blue-500 cursor-pointer">
-            <Link  href={'/auth/register'}>Click for Loging </Link>
+            <Link  href={'/auth/register'}>Click for register </Link>
           </span>
         </form>
         {showConfetti && <Confetti />}

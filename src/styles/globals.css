@@ -6,28 +6,33 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --text-color-dark: #181027; /* Color blanco para texto en tema oscuro */
+  --text-color-light: #181027; /* Color negro para texto en tema claro */
 }
 
+/* Media Query para detectar preferencias de color del sistema */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  body {
+    /* Cambios para tema oscuro */
+    color: white;
+    background: rgb(19, 5, 22);
+  }
+
+  /* Ejemplo de cómo aplicar el color del texto en tema oscuro */
+  h1, p, a {
+    color: white;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@media (prefers-color-scheme: light) {
+  body {
+    /* Cambios para tema claro */
+    color:white;
+    background:  rgb(19, 5, 22);
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Ejemplo de cómo aplicar el color del texto en tema claro */
+  h1, p, a {
+    color: whitesmoke;
   }
 }
