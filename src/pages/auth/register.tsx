@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
-import SuccessCard from '@/components/SuccessCard';
-import ErrorCard from '@/components/ErrorCard';
+import SuccessCard from '@/pages/components/SuccessCard';
+import ErrorCard from '@/pages/components/ErrorCard';
 import Confetti from 'react-confetti';
 import Link from 'next/link';
 export default function Register() {
@@ -141,7 +141,7 @@ export default function Register() {
             Register
           </button>
           <span className="text-sm ml-2 text-white hover:text-blue-500 cursor-pointer">
-            <Link href='/register'>Click for Loging</Link>
+            <Link href='/auth/login'>Click for Loging</Link>
           </span>
         </form>
         {showConfetti && <Confetti />}
